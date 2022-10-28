@@ -19,7 +19,6 @@ function App() {
   const funcNext = () => {
     if (indx < Slides.length - 1) {
       setIndx(indx + 1);
-      console.log(indx);
     }
   };
 
