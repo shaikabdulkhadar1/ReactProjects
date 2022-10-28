@@ -5,29 +5,22 @@ import { Slides } from "./Slides";
 
 function App() {
   const [indx, setIndx] = useState(0);
-  const [title, setTitle] = useState(Slides[indx].title);
-  const [text, setText] = useState(Slides[indx].text);
 
   const funcReset = () => {
     setIndx(0);
-    setTitle(Slides[indx].title);
-    setText(Slides[indx].text);
   };
 
   const funcPrev = () => {
     if (indx > 0) {
       setIndx(indx - 1);
     }
-    setTitle(Slides[indx].title);
-    setText(Slides[indx].text);
   };
 
   const funcNext = () => {
-    if (indx < Slides.length) {
+    if (indx < Slides.length - 1) {
       setIndx(indx + 1);
+      console.log(indx);
     }
-    setTitle(Slides[indx].title);
-    setText(Slides[indx].text);
   };
 
   return (
@@ -52,14 +45,14 @@ function App() {
           <button
             className="button-next"
             onClick={funcNext}
-            disabled={indx == Slides.length ? true : false}
+            disabled={indx == Slides.length - 1 ? true : false}
           >
             Next
           </button>
         </div>
         <div className="taks">
-          <h1 className="title">{title}</h1>
-          <p className="text">{text}</p>
+          <h1 className="title">{Slides[indx].title}</h1>
+          <p className="text">{Slides[indx].text}</p>
         </div>
       </div>
     </>
